@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Henry - Skills</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <video id="bgVideo" autoplay muted loop>
+      <source src="../sources/vid/bg.mp4" type="video/mp4" />
+    </video>
+    <nav>
+      <a
+        href="../index.html"
+        class="logo animate__animated animate__pulse animate__infinite animate__slow"
+        ><span>HENRY</span></a
+      >
+
+      <ul class="links">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="education.html">Education</a>
+        <a href="skills.html" class="active">Skills</a>
+      </ul>
+
+      <a href="contact.html" class="btn">Contact Me</a>
+    </nav>
+
+    <section id="skill">
+      <div class="skills-box">
+        <h1 class="header"><span>My Skills</span></h1>
+
+        <div class="skills">
+          <ul>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/HTML" target="_blank"
+                ><span><i class="bx bx-chevron-right"></i>HTML</span></a
+              >
+            </li>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/CSS" target="_blank"
+                ><span><i class="bx bx-chevron-right"></i>CSS</span></a
+              >
+            </li>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank"
+                ><span><i class="bx bx-chevron-right"></i>JavaScript</span></a
+              >
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/MySQL" target="_blank"
+                ><span><i class="bx bx-chevron-right"></i>MySQL</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://en.wikipedia.org/wiki/Python_(programming_language)"
+                target="_blank"
+                ><span><i class="bx bx-chevron-right"></i>Python</span></a
+              >
+            </li>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank"
+                ><span><i class="bx bx-chevron-right"></i>C++</span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <h1 class="header"><span>My Little Project</span></h1>
+        <div class="project-container">
+          <div class="box">
+            <h1><span>AI Chatbot</span></h1>
+            <p>
+              This is a small project to create AI xiaozhi chatbot that
+              communicates by voice via ESP32.
+            </p>
+            <img src="../sources/img/aichatbot.jpg" alt="" />
+          </div>
+          <div class="box">
+            <h1><span>Fan, Led Controller</span></h1>
+            <p>
+              This project uses 2 Raspberry Pi Pico boards to control the LED
+              lighting for a PC fan.
+            </p>
+            <img src="../sources/img/fanledpccontrol.jpg" alt="" />
+          </div>
+          <div class="box">
+            <h1><span>Ambient Backlight</span></h1>
+            <p>HyperHDR project based on Pi 3B to create edge lighting</p>
+            <video controls>
+              <source src="../sources/vid/ablight.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="../script.js"></script>
+  </body>
+</html>
