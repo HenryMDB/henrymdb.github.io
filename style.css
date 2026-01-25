@@ -187,15 +187,15 @@ section {
   font-size: 1.5em;
 }
 
-/* =================== sửa trang Education ===================== */
+/* =================== sửa trang Tools ===================== */
 
-#education {
+#Tools {
   /* background-color: var(--background); */
   min-height: 100vh;
   padding: 10% 5%;
 }
 
-.education-box {
+.Tools-box {
   color: white;
   max-width: 800px;
   margin: auto;

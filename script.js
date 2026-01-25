@@ -1,11 +1,17 @@
 const cvBtn = document.querySelector(".btn-box .btn");
-
 if (cvBtn) {
   cvBtn.addEventListener("click", () => {
     window.open("sources/CV/myCV.pdf", "_blank");
   });
 }
 
+const cvBtn2 = document.querySelector(".Tools-box .edu-item .LT84");
+if (cvBtn2) {
+  cvBtn2.addEventListener("click", () => {
+    window.open("../sources/sourcesfile/LT84.exe", "_blank");
+  });
+}
+ 
 const vid = document.getElementById("bgVideo");
 
 vid.play().catch(() => {
