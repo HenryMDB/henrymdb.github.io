@@ -1,0 +1,364 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins";
+}
+:root {
+  --background: rgb(24, 24, 24);
+  --second-background: rgb(21, 21, 21);
+}
+body {
+  min-height: 100vh;
+  background-color: var(--background);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+body.page-loaded {
+  opacity: 1;
+}
+body.page-fade-out {
+  opacity: 0;
+}
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* chỉnh giao diện thanh nav trên cùng */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.4em 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(15, 15, 15, 0.445);
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+}
+/* chỉnh khoảng cách các nút unoderlist trên nav */
+ul {
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+/* chỉnh màu và thời gian sáng lên khi di chuột vào 4 nút home, about  */
+nav ul a {
+  color: white;
+  opacity: 0.4;
+  font-size: 1.2em;
+  transition: 0.2s ease-in-out;
+}
+nav ul a:hover,
+nav ul a.active,
+.logo span:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.logo span {
+  font-size: 2.5em;
+  opacity: 0.8;
+  transition: 0.3s ease-in-out;
+  display: inline-block;
+  font-family: "Playfair Display", serif;
+}
+
+.btn {
+  padding: 0.5em 1em;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 0.5em;
+  font-size: 1.1em;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.btn:hover {
+  background-color: white;
+  color: var(--background);
+  transform: scale(1.2);
+}
+
+span {
+  background: linear-gradient(to right, #7cff6a, #48d6ff);
+  background-clip: text;
+  color: transparent;
+}
+
+section {
+  min-height: 100vh;
+  padding: 5% 5%;
+}
+
+.header {
+  text-align: center;
+  font-size: 5em;
+  margin: 0.5em 0;
+}
+
+/* =======================Chinh trang home=============================== */
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  color: white;
+}
+
+#home img {
+  width: 15vw;
+  border-radius: 50%;
+}
+
+.info-box {
+  display: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5em;
+  max-width: 1000px;
+}
+
+.info-box h1 {
+  font-size: 5em;
+  font-weight: 500;
+}
+
+.info-box h3 {
+  font-size: 2em;
+  font-weight: 100;
+  opacity: 0.9;
+}
+
+.btn-box {
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  background-color: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6cff52, #3ec5ff);
+}
+
+/* =====================chinh trang about======================== */
+
+#about {
+  /* background-color: var(--background); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5em;
+}
+
+#about img {
+  width: 30vw;
+  border-radius: 5em;
+  opacity: 0.7;
+}
+
+.about-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2em;
+}
+
+.about-box h1 {
+  font-size: 5em;
+}
+
+.about-box p {
+  color: white;
+  opacity: 0.4;
+  font-size: 1.5em;
+}
+
+/* =================== sửa trang Education ===================== */
+
+#education {
+  /* background-color: var(--background); */
+  min-height: 100vh;
+  padding: 10% 5%;
+}
+
+.education-box {
+  color: white;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.edu-item {
+  background-color: var(--second-background);
+  padding: 1.5em;
+  border-radius: 0.5em;
+  transition: 0.3s ease-in-out;
+}
+
+.edu-item:hover {
+  transform: translateY(-5px);
+  border: 1px solid #3ec5ff;
+}
+
+.edu-item h2 {
+  margin-bottom: 0.5em;
+}
+
+.edu-item h3 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+.edu-item p {
+  opacity: 0.8;
+  line-height: 1.6em;
+}
+
+/* ====================trang skill============================= */
+
+
+.skills {
+  display: flex;
+  text-align: center;
+  gap: 10em;
+  justify-content: center;
+}
+
+.skills ul {
+  font-size: 1.3em;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  opacity: 0.8;
+  align-items: baseline;
+}
+
+.skills ul li span {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.3em;
+  transition: 0.3s ease-in-out;
+}
+
+.skills ul li span:hover {
+  transform: translateX(10px);
+}
+
+.skills ul li i {
+  font-size: 1.2em;
+}
+
+.about-box h2 {
+  font-size: 2.5em;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+}
+
+.box {
+  border: 3px solid rgb(49, 49, 49);
+  width: 100%;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  object-fit: cover;
+  padding: 3em;
+  gap: 2em;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  border: 1px solid #3ec5ff;
+}
+
+.box p {
+  opacity: 0.5;
+}
+
+.box h1 {
+  font-size: 2em;
+}
+
+.box img,
+.box video {
+  min-width: 25px;
+  border-radius: 0.5em;
+}
+
+/* =================Chinh trang Contact============================= */
+#contact {
+  /* background-color: var(--second-background); */
+  padding-top: 10%;
+  padding-bottom: 5%;
+  color: white;
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  align-items: center;
+}
+
+.contact-info .col-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.2em;
+}
+
+.contact-info .col-box i {
+  font-size: 1.8em;
+  align-items: center;
+}
+
+.contact-info .social-icons {
+  display: flex;
+  gap: 1.5em;
+  margin-top: 1em;
+  margin: auto;
+}
+.contact-info .social-icons span {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.3em;
+  transition: 0.3s ease-in-out;
+}
+
+.contact-info .social-icons i {
+  font-size: 4em;
+  transition: 1s;
+}
+
+.contact-info .social-icons i:hover {
+  color: #f3db00;
+  font-size: 4.5em;
+}

@@ -1,0 +1,51 @@
+const cvBtn = document.querySelector(".btn-box .btn");
+
+if (cvBtn) {
+  cvBtn.addEventListener("click", () => {
+    window.open("sources/CV/myCV.pdf", "_blank");
+  });
+}
+
+const vid = document.getElementById("bgVideo");
+
+vid.play().catch(() => {
+  vid.muted = true;
+  vid.play();
+});
+
+// =============== PAGE FADE TRANSITION ===============
+window.addEventListener("load", () => {
+  document.body.classList.add("page-loaded");
+});
+
+document.querySelectorAll("a[href]").forEach((link) => {
+  const href = link.getAttribute("href");
+
+  if (
+    !href ||
+    href.startsWith("#") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:") ||
+    link.target === "_blank"
+  ) {
+    return;
+  }
+
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const url = href;
+
+    document.body.classList.add("page-fade-out");
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 300);
+  });
+});
+
+var typed = new Typed(".typing", {
+  strings: ["Henry", "a Web Designer", "a Web Developer", "a Graphic Designer"],
+  typeSpeed: 100,
+  BackSpeed: 60,
+  loop: true,
+});
