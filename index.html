@@ -58,5 +58,16 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
     <script src="script.js"></script>
+    <audio id="bgMusic" autoplay loop muted>
+      <source src="sources/vid/Timeless.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+      document.addEventListener("click", () => {
+      const music = document.getElementById("bgMusic");
+      music.muted = false;
+    }, { once: true });
+    </script>
+
   </body>
 </html>

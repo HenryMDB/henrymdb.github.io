@@ -50,8 +50,8 @@ document.querySelectorAll("a[href]").forEach((link) => {
 });
 
 var typed = new Typed(".typing", {
-  strings: ["Henry", "a Web Designer", "a Web Developer", "a Graphic Designer"],
-  typeSpeed: 100,
+  strings: ["Henry", "a Web Developer", "a Coder"],
+  typeSpeed: 50,
   BackSpeed: 60,
   loop: true,
 });
