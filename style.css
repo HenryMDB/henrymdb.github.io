@@ -362,3 +362,59 @@ section {
   color: #f3db00;
   font-size: 4.5em;
 }
+
+/* ================= WELCOME SCREEN ================= */
+#welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000; /* Màu nền đen */
+  z-index: 99999; /* Đảm bảo đè lên tất cả mọi thứ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease; /* Hiệu ứng mờ dần khi tắt */
+}
+
+#welcome-screen .content {
+  text-align: center;
+  color: white;
+  animation: fadeIn 1s ease;
+}
+
+#welcome-screen h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  font-family: 'Playfair Display', serif;
+}
+
+#welcome-screen p {
+  opacity: 0.6;
+  margin-bottom: 2em;
+  font-size: 1.2em;
+}
+
+#welcome-screen button {
+  padding: 15px 40px;
+  background: transparent;
+  color: #7cff6a;
+  border: 2px solid #7cff6a;
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+#welcome-screen button:hover {
+  background: #7cff6a;
+  color: black;
+  box-shadow: 0 0 20px #7cff6a;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
