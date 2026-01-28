@@ -173,7 +173,7 @@ section {
 .about-box {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  text-align: justify;
   gap: 2em;
 }
 
@@ -189,10 +189,12 @@ section {
 
 /* =================== sửa trang Tools ===================== */
 
-#Tools {
+#tools {
   /* background-color: var(--background); */
   min-height: 100vh;
   padding: 10% 5%;
+  align-items: center;
+  flex-direction: column;
 }
 
 .Tools-box {
@@ -226,12 +228,88 @@ section {
 }
 
 .edu-item p {
-  opacity: 0.8;
-  line-height: 1.6em;
+  font-size: 1.4em;
+}
+.edu-item h3 a,
+.edu-item h3 {
+  color: white;
+  font-size: 1em;
+}
+
+.LT84:hover,
+.edu-item h3:hover {
+  text-decoration: underline;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+/* Style cho hộp chứa lệnh */
+.command-box {
+  background: #2b2b2b; /* Màu nền tối giống Terminal */
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  display: flex; /* Xếp ngang hàng */
+  align-items: center;
+  justify-content: space-between; /* Đẩy nút copy sang phải */
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.command-box:hover {
+  border-color: #48d6ff; /* Sáng lên khi di chuột vào */
+}
+
+/* Phần nội dung text */
+.cmd-info {
+  display: flex;
+  flex-direction: column; /* Label ở trên, code ở dưới (hoặc chỉnh row nếu thích) */
+  overflow: hidden;
+}
+
+.cmd-info .label {
+  font-size: 0.9em;
+  color: #7cff6a; /* Màu xanh lá cho tên tool */
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.cmd-info code {
+  font-family: "Consolas", "Courier New", monospace; /* Font code */
+  color: #ddd;
+  font-size: 0.95em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Nút Copy */
+.copy-btn {
+  background: transparent;
+  border: 1px solid #555;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  flex-shrink: 0; /* Không bị co lại */
+}
+
+.copy-btn:hover {
+  background: white;
+  color: black;
+}
+
+.copy-btn i {
+  font-size: 1.2em;
 }
 
 /* ====================trang skill============================= */
-
 
 .skills {
   display: flex;
@@ -387,7 +465,7 @@ section {
 #welcome-screen h1 {
   font-size: 3em;
   margin-bottom: 0.5em;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 #welcome-screen p {
@@ -405,7 +483,7 @@ section {
   cursor: pointer;
   border-radius: 50px;
   transition: 0.3s;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 #welcome-screen button:hover {
@@ -415,6 +493,45 @@ section {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- THÊM VÀO CUỐI FILE STYLE.CSS --- */
+
+/* 1. Mặc định ẩn tất cả các section có class tab-content */
+.tab-content {
+  display: none !important;
+  /* Thêm hiệu ứng hiện ra từ từ cho mượt */
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 2. Khi có thêm class active thì hiện ra */
+/* Dùng display: flex để giữ nguyên bố cục cũ của bạn */
+.tab-content.active {
+  display: flex !important;
+}
+
+/* 3. Animation Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 4. Fix riêng cho phần Contact (vì contact layout cũ hơi khác các trang kia) */
+#contact.tab-content.active {
+  flex-direction: column;
+  justify-content: flex-start;
 }

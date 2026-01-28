@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Henry - Home</title>
+    <title>Henry - World</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap"
       rel="stylesheet"
@@ -12,12 +12,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -28,53 +27,246 @@
         <button id="enter-btn">Click to Enter</button>
       </div>
     </div>
-    <video id="bgVideo" autoplay muted loop>
+
+    <video id="bgVideo" autoplay muted loop playsinline>
       <source src="sources/vid/homebg.mov" type="video/mp4" />
     </video>
-    <nav>
-      <a
-        href="index.html"
-        class="logo animate__animated animate__pulse animate__infinite animate__slow"
-        ><span>HENRY</span></a
-      >
-
-      <ul class="links">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="Tools.html">Tools</a>
-        <a href="skills.html">Skills</a>
-      </ul>
-
-      <a href="contact.html" class="btn">Contact Me</a>
-    </nav>
-
-    <section id="home">
-      <img
-        src="sources/img/me1.jpg"
-        class="animate__animated animate__pulse animate__infinite animate__slow"
-      />
-
-      <div class="info-box">
-        <h1><span>Hello, I'm <span class="typing">Henry</span></span></h1>
-        <h3><span>Graduated </span> from Greenwich University</h3>
-      </div>
-
-      <div class="btn-box">
-        <div class="btn">My CV</div>
-      </div>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
-    <script src="script.js"></script>
-    <audio id="bgMusic" autoplay loop muted>
-      <source src="sources/vid/allthestar.mp3" type="audio/mpeg">
+    <audio id="bgMusic" loop>
+      <source src="sources/vid/allthestar.mp3" type="audio/mpeg" />
     </audio>
 
-    <script>
-      document.addEventListener("click", () => {
-      const music = document.getElementById("bgMusic");
-      music.muted = false;
-    }, { once: true });
-    </script>
+    <nav>
+      <a
+        href="#"
+        onclick="switchTab('home')"
+        class="logo animate__animated animate__pulse animate__infinite animate__slow"
+      >
+        <span>HENRY</span>
+      </a>
 
+      <ul class="links">
+        <li>
+          <a
+            href="#"
+            onclick="switchTab('home')"
+            class="nav-link active"
+            data-target="home"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            onclick="switchTab('about')"
+            class="nav-link"
+            data-target="about"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            onclick="switchTab('tools')"
+            class="nav-link"
+            data-target="tools"
+            >Tools</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            onclick="switchTab('skill')"
+            class="nav-link"
+            data-target="skill"
+            >Skills</a
+          >
+        </li>
+      </ul>
+
+      <a href="#" onclick="switchTab('contact')" class="btn">Contact Me</a>
+    </nav>
+
+    <main id="main-content">
+      <section id="home" class="tab-content active">
+        <img
+          src="sources/img/me1.jpg"
+          class="animate__animated animate__pulse animate__infinite animate__slow"
+        />
+        <div class="info-box">
+          <h1>
+            <span>Hello, I'm <span class="typing">Henry</span></span>
+          </h1>
+          <h3><span>Graduated </span> from Greenwich University</h3>
+        </div>
+        <div class="btn-box">
+          <div
+            class="btn"
+            onclick="window.open('sources/CV/myCV.pdf', '_blank')"
+          >
+            My CV
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="tab-content">
+        <div class="about-box">
+          <div class="about-info">
+            <h1><span>About Me</span></h1>
+            <p>
+              My name is Henry Nguyen, and I was born on December 29, 1997. I
+              describe myself as a hardworking and passionate individual with a
+              deep love for technology. I am constantly updating myself on the
+              latest tech news and have a specific interest in tinkering with
+              smartphones and embedded systems. I am also very hands-on and
+              enjoy fixing broken household items in my spare time.
+            </p>
+          </div>
+        </div>
+        <img src="sources/img/me2.jpg" alt="" />
+      </section>
+
+      <section id="tools" class="tab-content">
+        <h1 class="header"><span>Tools</span></h1>
+        <div class="Tools-box">
+          <div class="edu-item">
+            <h2><span>Keyboard Driver</span></h2>
+            <h3>
+              <a href="https://henrymdb.github.io/win60he" target="_blank"
+                >Win60HE Web Driver</a
+              >
+            </h3>
+            <h3
+              class="LT84"
+              style="cursor: pointer; margin-top: 10px; color: #f6f6f6"
+            >
+              LT84 Driver (Click to download)
+            </h3>
+          </div>
+
+          <div class="edu-item">
+            <h2><span>Tools for PC</span></h2>
+
+            <div class="command-box">
+              <div class="cmd-info">
+                <span class="label">WinUtil:</span>
+                <code id="cmd-winutil"
+                  >irm "https://christitus.com/win" | iex</code
+                >
+              </div>
+              <button
+                class="copy-btn"
+                onclick="copyToClipboard('cmd-winutil', this)"
+              >
+                <i class="bx bx-copy"></i>
+              </button>
+            </div>
+
+            <div class="command-box">
+              <div class="cmd-info">
+                <span class="label">MAS:</span>
+                <code id="cmd-mas">irm https://get.activated.win | iex</code>
+              </div>
+              <button
+                class="copy-btn"
+                onclick="copyToClipboard('cmd-mas', this)"
+              >
+                <i class="bx bx-copy"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skill" class="tab-content">
+        <div class="skills-box">
+          <h1 class="header"><span>My Skills</span></h1>
+          <div class="skills">
+            <ul>
+              <li>
+                <a href="#" target="_blank"
+                  ><span><i class="bx bx-chevron-right"></i>HTML</span></a
+                >
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><span><i class="bx bx-chevron-right"></i>CSS</span></a
+                >
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><span><i class="bx bx-chevron-right"></i>JavaScript</span></a
+                >
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="#" target="_blank"
+                  ><span><i class="bx bx-chevron-right"></i>Python</span></a
+                >
+              </li>
+              <li>
+                <a href="#" target="_blank"
+                  ><span><i class="bx bx-chevron-right"></i>C++</span></a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <h1 class="header"><span>My Little Project</span></h1>
+          <div class="project-container">
+            <div class="box">
+              <h1><span>AI Chatbot</span></h1>
+              <p>Voice communication via ESP32.</p>
+              <img src="sources/img/aichatbot.jpg" alt="" />
+            </div>
+            <div class="box">
+              <h1><span>Fan, Led Controller</span></h1>
+              <p>Using 2 Raspberry Pi Pico boards.</p>
+              <img src="sources/img/fanledpccontrol.jpg" alt="" />
+            </div>
+            <div class="box">
+              <h1><span>Ambient Backlight</span></h1>
+              <p>HyperHDR project based on Pi 3B.</p>
+              <video controls style="width: 100%">
+                <source src="sources/vid/ablight.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="tab-content">
+        <h1 class="header"><span>Contact</span></h1>
+        <div class="contact-info">
+          <div class="col-box">
+            <span><i class="bx bx-current-location"></i></span>
+            <span>10 Dang Xuan Bang Street - Dinh Cong - Ha Noi</span>
+          </div>
+          <div class="col-box">
+            <span><i class="bx bxs-phone"></i></span>
+            <a href="tel:0398975800"><span>0398975800</span></a>
+            <span> | </span>
+            <a href="mailto:ngq.datt@gmail.com"
+              ><span>ngq.datt@gmail.com</span></a
+            >
+          </div>
+          <h1 class="header"><span>Social Links</span></h1>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/ngq.datt" target="_blank"
+              ><span><i class="bx bxl-facebook-circle"></i></span
+            ></a>
+            <a href="https://www.instagram.com/henry.mdb" target="_blank"
+              ><span><i class="bx bxl-instagram"></i></span
+            ></a>
+            <a href="https://discord.com/" target="_blank"
+              ><span><i class="bx bxl-discord-alt"></i></span
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
