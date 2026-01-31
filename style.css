@@ -74,7 +74,8 @@ nav ul a.active,
   font-family: "Playfair Display", serif;
 }
 
-.btn {
+.btn,
+.btncv {
   padding: 0.5em 1em;
   color: white;
   font-weight: 500;
@@ -85,7 +86,8 @@ nav ul a.active,
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-.btn:hover {
+.btn:hover,
+.btncv:hover {
   background-color: white;
   color: var(--background);
   transform: scale(1.2);

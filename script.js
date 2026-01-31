@@ -103,6 +103,13 @@ function setupMiscButtons() {
       window.open("sources/sourcesfile/LT84.exe", "_blank"),
     );
   }
+
+  const cvBtn = document.querySelector(".btncv");
+  if (cvBtn) {
+    cvBtn.addEventListener("click", () =>
+      window.open("sources/CV/MyCV.pdf", "_blank"),
+    );
+  }
 }
 
 // ================= 5. KHỞI CHẠY =================
