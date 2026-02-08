@@ -190,11 +190,6 @@ section {
 }
 
 /* =================== sửa trang Tools ===================== */
-@media (max-width: 430px) {
-  #tools {
-    transform: scale(0.7);
-  }
-}
 #tools {
   /* background-color: var(--background); */
   min-height: 100vh;
@@ -639,5 +634,208 @@ section {
     opacity: 1;
     /* Về vị trí chuẩn */
     transform: translate(-50%, 0);
+  }
+}
+/* ================= RESPONSIVE TOOLS SECTION ================= */
+@media (max-width: 768px) {
+  /* 1. Căn chỉnh lại khung bao quanh */
+  #tools {
+    padding-top: 25%; /* Đẩy xuống sâu hơn để không bị menu che */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-height: auto; /* Bỏ chiều cao tối thiểu để không bị khoảng trắng thừa */
+  }
+
+  /* 2. Đảm bảo hộp chứa nằm gọn trong màn hình */
+  .Tools-box {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* 3. Tinh chỉnh từng thẻ công cụ (edu-item) */
+  .edu-item {
+    padding: 1.5rem 1rem; /* Giảm padding hai bên cho đỡ chật */
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Thêm bóng nhẹ cho nổi */
+  }
+
+  /* 4. XỬ LÝ QUAN TRỌNG: Hộp chứa lệnh (Command Box) */
+  .command-box {
+    padding: 10px;
+    gap: 8px;
+    /* Giữ nguyên layout ngang (text bên trái, nút bên phải) */
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Kỹ thuật Flexbox: giúp text tự co lại thay vì đẩy vỡ khung */
+  .cmd-info {
+    flex: 1; /* Chiếm hết không gian còn lại */
+    min-width: 0; /* QUAN TRỌNG: Cho phép thu nhỏ hơn nội dung bên trong */
+  }
+
+  /* 5. Xử lý dòng code */
+  .cmd-info code {
+    font-size: 0.85em; /* Giảm cỡ chữ code */
+
+    /* Tùy chọn 1: Cho phép cuộn ngang (giữ nguyên code đẹp) */
+    white-space: nowrap;
+    overflow-x: auto;
+    display: block;
+    padding-bottom: 5px; /* Tạo khoảng hở cho thanh cuộn */
+
+    /* Tùy chọn 2: Nếu muốn code tự xuống dòng thì dùng dòng dưới đây (bỏ 4 dòng trên) */
+    /* white-space: pre-wrap; word-break: break-all; */
+  }
+
+  /* Làm đẹp thanh cuộn nhỏ xíu cho code */
+  .cmd-info code::-webkit-scrollbar {
+    height: 2px;
+  }
+  .cmd-info code::-webkit-scrollbar-thumb {
+    background-color: #7cff6a;
+  }
+
+  /* 6. Xử lý các link tải driver */
+  .edu-item h3 {
+    font-size: 1.1em; /* Giảm cỡ chữ tiêu đề con */
+    margin-bottom: 1em;
+  }
+
+  .edu-item h3 a {
+    display: block; /* Biến link thành khối để dễ bấm */
+    padding: 5px 0;
+    word-wrap: break-word; /* Tự xuống dòng nếu link quá dài */
+  }
+}
+/* ================= RESPONSIVE SKILLS SECTION ================= */
+@media (max-width: 768px) {
+  /* 1. Đẩy nội dung xuống để tránh bị Menu che */
+  #skill {
+    padding-top: 25%;
+    padding-bottom: 50px; /* Thêm khoảng thở bên dưới */
+  }
+
+  /* 2. Xử lý danh sách kỹ năng (HTML, CSS, Python...) */
+  .skills {
+    flex-direction: column; /* Xếp chồng 2 cột lên nhau */
+    gap: 1.5em; /* Giảm gap từ 10em xuống 1.5em cho gọn */
+    margin-bottom: 3em; /* Tạo khoảng cách với phần Project bên dưới */
+  }
+
+  /* Căn giữa các mục kỹ năng */
+  .skills ul {
+    align-items: center;
+    gap: 1em; /* Khoảng cách giữa các dòng li */
+  }
+
+  .skills ul li a span {
+    font-size: 1.5em; /* Tăng cỡ chữ lên một chút cho dễ đọc */
+  }
+
+  /* 3. Xử lý phần Project (My Little Project) */
+  .project-container {
+    display: grid;
+    /* Bắt buộc xếp 1 cột duy nhất */
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 10px; /* Thêm lề nhỏ 2 bên */
+  }
+
+  /* 4. Tinh chỉnh từng hộp Project */
+  .box {
+    padding: 1.5em; /* Giảm padding trong hộp (cũ là 3em quá dày) */
+    width: 100%; /* Chiếm hết chiều ngang cho phép */
+  }
+
+  .box h1 {
+    font-size: 1.8em; /* Giảm cỡ chữ tiêu đề project */
+  }
+
+  .box p {
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
+
+  /* Đảm bảo ảnh và video không bị méo hoặc tràn */
+  .box img,
+  .box video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+/* ================= FIX CONTACT MENU MOBILE ================= */
+
+/* Mặc định trên PC: Ẩn dòng Contact trong menu đi (vì đã có nút to bên ngoài) */
+.mobile-contact {
+  display: none;
+}
+
+/* Khi vào Mobile: Hiện nó lên */
+@media (max-width: 768px) {
+  .mobile-contact {
+    display: block;
+    width: 100%; /* Đảm bảo nó rộng bằng các mục kia */
+    text-align: center; /* Căn giữa */
+  }
+}
+/* ================= RESPONSIVE CONTACT SECTION ================= */
+@media (max-width: 768px) {
+  /* 1. Đẩy nội dung xuống giống các trang khác */
+  #contact {
+    padding-top: 25%;
+    padding-bottom: 50px;
+  }
+
+  /* 2. Xử lý các dòng thông tin (Địa chỉ, SĐT, Email) */
+  .contact-info .col-box {
+    flex-direction: column; /* Xếp dọc icon và chữ */
+    text-align: center; /* Căn giữa nội dung */
+    gap: 0.8rem; /* Tăng khoảng cách cho thoáng */
+    background: rgba(255, 255, 255, 0.05); /* Thêm nền mờ nhẹ cho dễ nhìn */
+    padding: 1.5rem; /* Tạo độ dày cho hộp */
+    border-radius: 15px; /* Bo góc */
+    width: 90%; /* Giới hạn chiều rộng */
+    margin: 0 auto; /* Căn giữa hộp */
+  }
+
+  /* 3. Xử lý riêng dòng chứa SĐT và Email */
+  /* Ẩn dấu gạch đứng " | " đi vì không cần thiết khi xếp dọc */
+  .contact-info .col-box span:nth-child(3) {
+    display: none;
+  }
+
+  /* Biến thẻ a (link) thành khối để nó tự xuống dòng */
+  .contact-info .col-box a {
+    display: block;
+    font-size: 1.3em; /* Tăng cỡ chữ lên cho dễ bấm */
+    margin: 5px 0;
+  }
+
+  /* 4. Chỉnh icon to lên một chút */
+  .contact-info .col-box i {
+    font-size: 2.5em; /* Icon to làm điểm nhấn */
+    color: #7cff6a; /* Tô màu xanh cho nổi bật */
+    margin-bottom: 5px;
+  }
+
+  /* 5. Phần Social Links (Facebook, Insta...) */
+  .contact-info .social-icons {
+    gap: 2rem; /* Tăng khoảng cách giữa các icon mạng xã hội */
+    margin-top: 2rem;
+  }
+
+  .contact-info .social-icons i {
+    font-size: 3.5em; /* Icon MXH vừa phải */
+  }
+
+  /* Giảm cỡ chữ tiêu đề "Contact" và "Social Links" */
+  .header {
+    font-size: 3.5em;
   }
 }
