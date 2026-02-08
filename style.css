@@ -39,7 +39,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1.4em 15%;
+  padding: 1em 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,7 +67,7 @@ nav ul a.active,
   transform: scale(1.1);
 }
 .logo span {
-  font-size: 2.5em;
+  font-size: clamp(1.5em, 5vw, 2.5em);
   opacity: 0.8;
   transition: 0.3s ease-in-out;
   display: inline-block;
@@ -134,12 +134,12 @@ section {
 }
 
 .info-box h1 {
-  font-size: 5em;
+  font-size: clamp(2rem, 5vw + 1rem, 5em);
   font-weight: 500;
 }
 
 .info-box h3 {
-  font-size: 2em;
+  font-size: clamp(1.2em, 5vw, 2em);
   font-weight: 100;
   opacity: 0.9;
 }
@@ -190,7 +190,11 @@ section {
 }
 
 /* =================== sửa trang Tools ===================== */
-
+@media (max-width: 430px) {
+  #tools {
+    transform: scale(0.7);
+  }
+}
 #tools {
   /* background-color: var(--background); */
   min-height: 100vh;
@@ -312,7 +316,20 @@ section {
 }
 
 /* ====================trang skill============================= */
+#skill {
+  align-items: center;
+  flex-direction: column;
+}
 
+.skill-box {
+  color: white;
+  max-width: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+}
 .skills {
   display: flex;
   text-align: center;
@@ -505,8 +522,6 @@ section {
   }
 }
 
-/* --- THÊM VÀO CUỐI FILE STYLE.CSS --- */
-
 /* 1. Mặc định ẩn tất cả các section có class tab-content */
 .tab-content {
   display: none !important;
@@ -536,4 +551,93 @@ section {
 #contact.tab-content.active {
   flex-direction: column;
   justify-content: flex-start;
+}
+
+/* Mặc định ẩn icon menu trên PC */
+#menu-icon {
+  font-size: 3.6rem;
+  color: white;
+  display: none;
+  cursor: pointer;
+}
+
+/* Khi màn hình nhỏ hơn 768px (Mobile/Tablet dọc) */
+/* ================= MOBILE MENU CUSTOM ================= */
+@media (max-width: 768px) {
+  #about {
+    flex-direction: column; /* QUAN TRỌNG: Đổi hướng xếp thành dọc */
+    text-align: center; /* Căn giữa nội dung văn bản */
+    gap: 3em; /* Giảm khoảng cách giữa chữ và ảnh cho đỡ thưa */
+    padding-top: 8rem; /* Đẩy xuống một chút để không bị menu che */
+  }
+  /* 1. Hiện icon menu (Hamburger) */
+  #menu-icon {
+    display: block;
+  }
+
+  /* 2. Ẩn nút Contact Me ở ngoài (cho đỡ chật) */
+  nav .btn {
+    display: none;
+  }
+
+  /* 3. Cấu hình Menu dạng Popup */
+  .links {
+    position: absolute;
+    /* Đẩy xuống dưới thanh Nav một chút */
+    top: 110%;
+
+    /* --- KỸ THUẬT CĂN GIỮA TUYỆT ĐỐI --- */
+    left: 50%;
+    transform: translateX(-50%);
+    /* ----------------------------------- */
+
+    width: 80%; /* Chiều rộng 80% như yêu cầu */
+
+    /* Giao diện kính mờ & bo góc */
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px; /* Bo tròn các góc */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Đổ bóng sâu */
+
+    padding: 2rem;
+
+    /* Xếp dọc nội dung */
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    /* Mặc định ẩn */
+    display: none;
+    z-index: 1000;
+  }
+
+  /* Class này được JS thêm vào khi bấm nút */
+  .links.active {
+    display: flex;
+    /* Animation riêng để giữ vị trí căn giữa */
+    animation: popupFade 0.4s ease forwards;
+  }
+
+  /* Chỉnh lại font chữ trong menu */
+  .links li a {
+    font-size: 1.8rem; /* Chữ to rõ */
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+/* --- ANIMATION RIÊNG CHO POPUP --- */
+/* Phải dùng cái này vì nếu dùng fadeIn thường sẽ bị mất căn giữa */
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    /* Giữ nguyên X là -50% để căn giữa, chỉ dịch chuyển Y */
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    /* Về vị trí chuẩn */
+    transform: translate(-50%, 0);
+  }
 }

@@ -158,3 +158,42 @@ function copyToClipboard(elementId, btnElement) {
       console.error("Không thể copy: ", err);
     });
 }
+// ================= 6. XỬ LÝ MENU MOBILE =================
+function setupMobileMenu() {
+  const menuIcon = document.querySelector("#menu-icon");
+  const navbar = document.querySelector(".links");
+  const navLinks = document.querySelectorAll(".links a");
+
+  if (!menuIcon || !navbar) return;
+
+  // 1. Bấm vào icon thì bật/tắt menu
+  menuIcon.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+
+    // Đổi icon từ 3 gạch (bx-menu) sang chữ X (bx-x)
+    menuIcon.classList.toggle("bx-x");
+  });
+
+  // 2. Khi bấm vào bất kỳ link nào trong menu -> Tự động đóng menu lại
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navbar.classList.remove("active");
+      menuIcon.classList.remove("bx-x");
+    });
+  });
+
+  // 3. Cuộn trang thì đóng menu (tùy chọn, cho gọn)
+  window.onscroll = () => {
+    navbar.classList.remove("active");
+    menuIcon.classList.remove("bx-x");
+  };
+}
+
+// GỌI HÀM NÀY KHI LOAD
+window.addEventListener("load", () => {
+  setupWelcomeScreen();
+  setupMiscButtons();
+  setupMobileMenu(); // <--- Thêm dòng này vào
+
+  // ... code cũ ...
+});
