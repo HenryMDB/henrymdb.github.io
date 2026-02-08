@@ -246,14 +246,14 @@ section {
 
 /* Style cho hộp chứa lệnh */
 .command-box {
-  background: #2b2b2b; /* Màu nền tối giống Terminal */
+  background: #2b2b2b;
   border: 1px solid #444;
   border-radius: 8px;
   padding: 10px 15px;
   margin-bottom: 15px;
-  display: flex; /* Xếp ngang hàng */
+  display: flex;
   align-items: center;
-  justify-content: space-between; /* Đẩy nút copy sang phải */
+  justify-content: space-between;
   gap: 10px;
   transition: 0.3s;
 }
